@@ -1,0 +1,166 @@
+$owht: #EBEBEB;
+.container {
+	height: 15%;
+
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid grey;
+.logo{
+	width: 10%;
+    height: 10%;
+
+}
+
+.social_div{
+	height: 10vw;
+	width: 13vw;
+	background-color: $owht;
+	  .social_logo{ width:40px;
+	  	height: 40px;}
+}
+
+}
+
+.rest_overflow{
+	max-height:300px;
+	overflow: hidden;
+
+}
+
+.Rest_img_div{
+	max-height:450px;
+	// background-image: url(//c3.staticflickr.com/9/8675/16112972906_f0fff8d9e3_n.jpg);
+	// background-position: center bottom;
+	// background-size: cover;
+	 -webkit-transform: rotate(180deg);
+  -moz-transform:    rotate(180deg);
+  -ms-transform:     rotate(180deg);
+  -o-transform:      rotate(180deg);
+  transform:         rotate(180deg);
+  /* needed? not sure */
+  zoom: 1;
+	.rest_img{ 
+		display: block;
+        transform:rotate();
+        width: 100%;
+	
+		max-height:100%;
+		 -webkit-transform: rotate(180deg);
+  -moz-transform:    rotate(180deg);
+  -ms-transform:     rotate(180deg);
+  -o-transform:      rotate(180deg);
+  transform:         rotate(180deg);
+  /* needed? not sure */
+  zoom: 1;
+
+}}
+
+.under_img_feeds{
+	display:flex;
+	justify-content: space-between;
+}
+
+
+.test_div {
+	height: 320px;
+	width: 350px;
+	background-color: #ECECEC;
+	display: inline-block;
+	white-space: nowrap;
+
+	margin-left: 3%;
+
+}
+
+
+.test_title {
+	width:80%;
+	margin: auto;
+	border-bottom: 1px solid grey;
+	height:9%;
+	display:flex;
+	align-items: flex-end;
+	  
+	  .test_text{
+	  	position: relative; 
+	  	margin-top: 5%;
+	  }
+	 
+}
+
+.article_title{
+	    
+	  	width: 80%;
+	  	margin: auto;
+	  }
+ 
+	  .article_content {
+	  	width: 80%;
+	  	margin: auto;
+
+	  }
+
+
+
+
+.food_special_img{
+width:80%;
+height:50%;
+}
+
+.map_article {
+	width:80%;
+	margin: auto;
+	border-bottom: 1px solid grey;
+	height:9%;
+	margin-bottom:65%;
+}
+#google_map {
+
+   height: 200px;
+   width:100%;
+}
+
+
+.menu_tab_div{
+	float: left;
+    background-color: lightblue;
+
+
+}
+
+.flickr_photos{
+	float: right;
+.flick_food {
+	height: 150px;
+	width: 150px;
+
+}
+}
+
+.under_div {
+width:60%;
+}
+
+
+
+.bord{
+	margin-left: -3%;
+}
+
+.tab_ourstory{
+	border-bottom: 1px solid grey;
+}
+
+.tab_menu{
+border-bottom: 1px solid grey;
+}
+.tab_rsvp{
+border-bottom: 1px solid grey;
+}
+
+.tab_border{
+	border-bottom: 1px solid grey;
+	width:80%;
+	height: 10%;
+}
