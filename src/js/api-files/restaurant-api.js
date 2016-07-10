@@ -36,23 +36,56 @@ var newsTemplate = function(result){
   </div>`
 }
 
+// |=============================================IMPORTANT=================================================|
+// |To replace '1' or '0' with the correct icon or image have an if statement:                             |
+// |EXAMPLE | if (result.spicy == 1) {spicy = `<img src="example.com/picture"></img>`} |                   |
+// |=======================================================================================================|
+
 var fancyMenuTemplate = function(result){
+var spicy = ""
+var vegan = ""
+var allergies = ""
+
+  if (result.spicy == 1) {spicy = `<img src="example.com/picture"></img>`}
+  if (result.vegan == 1) {vegan = `<img src="example.com/picture"></img>`}
+  if (result.allergies == 1) {allergies = `<img src="example.com/picture"></img>`}
+
   return `<div class="fancy-menu-post">
   <p class="title">${result.item}</p>
   <p class="description">${result.description}</p>
   <p class="price">$${result.price}</p>
+  <p class="spicy">Spicy: ${spicy}</p>
+  <p class="vegan">Vegan: ${vegan}</p>
+  <p class="allergies">Allergies: ${allergies}</p>
   </div>`
 }
 
 
 var alaydisMenuTemplate = function(result){
+  var localFave = ""
+  var lowSodium = ""
+  var Under500 = ""
+  var price = ""
+  var soupOr = function(){
+    if (result.price.cup === undefined) {
+      price = "$" + result.price
+      }
+    else price = "cup: $" + result.price.cup + "bowl: $" + result.price.bowl
+  }
+
+    if (result["local fav"] == 1) {localFave = `<img src="example.com/picture"></img>`};
+    if (result["low sodium"] == 1) {lowSodium = `<img src="example.com/picture"></img>`};
+    if (result["under 500 cals"] == 1) {Under500 = `<img src="example.com/picture"></img>`};
+
+soupOr()
+
   return `<div class="alaydis-menu-post">
   <p class="item">${result.item}</p>
-  <p class="price">$${result.price}</p>
+  <p class="price">${price}</p>
   <p class="description">${result.description}</p>
-  <p class="local">Local fave? ${result["local fav"]}</p>
-  <p class="sodium">Low sodium? ${result["low sodium"]}</p>
-  <p class="cals">Under 500 cals? ${result["under 500 cals"]}</p>
+  <p class="local">Local fave? ${localFave}</p>
+  <p class="sodium">Low sodium? ${lowSodium}</p>
+  <p class="cals">Under 500 cals? ${Under500}</p>
   <hr>
   </div>`
 }
@@ -116,6 +149,8 @@ var specialsLogic = function(data){
         });
     }
   console.log("%cSPECIAL OF THE DAY","color:orange;",specialItem);
+    $(".special-item").append("Special OF THE DAY")
+    $(".special-item").append(fancyMenuTemplate(specialItem))
 };
 
 
