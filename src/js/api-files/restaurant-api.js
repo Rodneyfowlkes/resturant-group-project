@@ -1,7 +1,9 @@
 import $ from 'jquery';
 
 var baseURL = "https://json-data.herokuapp.com/restaurant"
-
+var fancyMenuObj = 0
+var specialsObj = 0
+var specialItem = 0
 
 var log = function(data){
   console.warn(">>>> API request errored out, logging data...")
@@ -42,21 +44,15 @@ var fancyMenuTemplate = function(result){
   </div>`
 }
 
-// "item": "Bagel & Egg",
-// "price": 2,
-// "description": "A Bagel and an Egg",
-// "local fav": 0,
-// "low sodium": 1,
-// "under 500 cals": 1
 
 var alaydisMenuTemplate = function(result){
   return `<div class="alaydis-menu-post">
   <p class="item">${result.item}</p>
   <p class="price">$${result.price}</p>
   <p class="description">${result.description}</p>
-  <p class="local">${result["local fav"]}</p>
-  <p class="sodium">${result["low sodium"]}</p>
-  <p class="cals">${result["under 500 cals"]}</p>
+  <p class="local">Local fave? ${result["local fav"]}</p>
+  <p class="sodium">Low sodium? ${result["low sodium"]}</p>
+  <p class="cals">Under 500 cals? ${result["under 500 cals"]}</p>
   <hr>
   </div>`
 }
@@ -74,6 +70,9 @@ var newsToPage = function(data){
 }
 
 var fancyToPage = function(data){
+    fancyMenuObj = data;
+        specialsInit();
+        // This function call is here because specialsInit() depends on fancyMenuObj variable being set
   console.log("function %cfancyToPage%c running, API request recieved","color:blue;", data)
         console.log("adding api result %cappetizers%c to page","color:green;", data)
           data.appetizers.forEach(function(datum){
@@ -93,10 +92,11 @@ var fancyToPage = function(data){
 }
 
 var alaydisToPage = function(data){
+      console.log("function %calaydisToPage%c running","color:blue;","color:black;")
   for (var prop in data) {
     console.log("Looping over " + "data." + [prop]);
     data[prop].forEach(function(datum){
-      console.log("%c<----%c  | number of ","color:green;","color:black;", prop)
+      console.log("%c<----%c  number of ","color:green;","color:black;", prop)
       $(".alaydis-menu").append(alaydisMenuTemplate(datum))
 
     });
@@ -104,12 +104,38 @@ var alaydisToPage = function(data){
 };
 
 
+var specialsLogic = function(data){
+  var specialsObj = data;
+  var specialID = data.menu_item_id;
+
+    console.log("function %cspecialsLogic%c running","color:blue;","color:black;")
+    console.log("specialsObj: ",specialsObj,"Today's Special 'id': ",specialID)
+  for (var prop in fancyMenuObj) {
+      fancyMenuObj[prop].forEach(function(datum){
+        if (datum.id === specialID) {specialItem = datum}
+        });
+    }
+  console.log("%cSPECIAL OF THE DAY","color:orange;",specialItem);
+};
+
+
+var specialsInit = function(data){
+  console.log("function %cspecialsInit%c running","color:blue;","color:black;")
+  requestAPI('/special/1',specialsLogic)
+};
+
+
+
 // Remember to modify the ${class} to point to whatever is on your real index.html
 // ------------------------------------------------------------------------------
 
-
+// =================================
+// INIT                             |
 requestAPI('/news/1',newsToPage)
 requestAPI('/menu/1', fancyToPage)
 requestAPI('/menu/2', alaydisToPage)
+// INIT                             |
+// =================================
+
 
 export { baseURL, requestAPI, newsTemplate, fancyMenuTemplate, alaydisMenuTemplate, log, newsToPage, fancyToPage, alaydisToPage };
