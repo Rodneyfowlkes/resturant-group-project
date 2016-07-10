@@ -26,6 +26,7 @@ console.log("function %crequestAPI%c running","color:blue;", baseURL)
 }
 
 
+
 // =========
 // TEMPLATES
 // =========
@@ -121,16 +122,19 @@ var fancyToPage = function(data){
         // This function call is here because specialsInit() depends on fancyMenuObj variable being set
   console.log("function %cfancyToPage%c running, API request recieved","color:blue;", data)
         console.log("adding api result %cappetizers%c to page","color:green;", data)
+        $(".fancy-menu").append(`<span class="menu-sub-title">Appetizers</span>`)
           data.appetizers.forEach(function(datum){
               $(".fancy-menu").append(fancyMenuTemplate(datum))
 
             });
         console.log("adding api result %centrees%c to page","color:green;", data)
+          $(".fancy-menu").append(`<span class="menu-sub-title">Entrees</span>`)
           data.entrees.forEach(function(datum){
               $(".fancy-menu").append(fancyMenuTemplate(datum))
 
             });
         console.log("adding api result %csides%c to page","color:green;", data)
+          $(".fancy-menu").append(`<span class="menu-sub-title">Sides A La Carte</span>`)
         data.sides.forEach(function(datum){
             $(".fancy-menu").append(fancyMenuTemplate(datum))
 
