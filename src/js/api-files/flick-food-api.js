@@ -14,7 +14,7 @@ var photo_pull = function(x) {
 	    var secret = y.secret;
 	    var photo_src = `https://farm${farm_id}.staticflickr.com/${server_id}/${id}_${secret}.jpg`
 		console.log(photo_src);
-		$(".img_test").append(`  <div class="img"> <img src="${photo_src}">
+		$(".flickr_photos").append(`  <div class="img"> <img class="flick_food" src="${photo_src}">
 
 							   </div>
      `)})}
@@ -36,7 +36,7 @@ var flickr_pull = function (x){ $.ajax({
   	
   	method: 'flickr.photos.search',
   	api_key: flickr_key,
-  	text: "food"
+  	text: "Sushi"
   }
 
 }).then(function (obj){ 
