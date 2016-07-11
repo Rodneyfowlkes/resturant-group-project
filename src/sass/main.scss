@@ -66,6 +66,11 @@ $owht: #EBEBEB;
 	height: 320px;
 	width: 350px;
 	background-color: #ECECEC;
+	border: solid #777777 1px;
+	border-radius: 2px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+
 	display: inline-block;
 	white-space: nowrap;
 		overflow-y: scroll;
@@ -228,13 +233,15 @@ height:4vw;
 // POST STYLES
 
 hr{
-	width: auto;
+	width: 840px;
+	margin-right: 200px;
 }
 
 .icons img{
 height: 30px;
 width: auto;
 float: right;
+
 }
 .menu-title{
 	font-weight: bold;
@@ -244,6 +251,9 @@ float: right;
 font-style: italic;
 font-weight: bold;
 font-size: 18px;
+width: 840px;
+border-bottom: solid black 1px;
+margin-bottom: 25px;
 }
 
 .fancy-menu-post{
