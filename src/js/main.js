@@ -75,13 +75,13 @@ $(".tab_rsvp").on('click', function (x){
 function handleReservation (event) {
  console.log("hello");
 
- $(".story_reso_div").html("");
 
-	var name = $(".nametext").value;
+	var name = $(".nametext").val();
 	var guest = $(".guesttext").val();
     var date = $(".datetext").val();
     var special = $(".specialtext").val();
     var seating = $(".seating").val();
+ $(".story_reso_div").html("");
 
 console.log(name);
      var rsvptemp = `<div>
