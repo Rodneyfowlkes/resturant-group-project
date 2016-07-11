@@ -173,7 +173,7 @@ var specialsLogic = function(data){
         });
     }
   console.log("%cSPECIAL OF THE DAY","color:orange;",specialItem);
-    $(".special-item").append("Special OF THE DAY")
+    $(".special-item").html("Special OF THE DAY")
     $(".special-item").append(fancyMenuTemplate(specialItem))
 };
 
