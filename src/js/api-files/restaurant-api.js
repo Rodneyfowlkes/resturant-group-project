@@ -27,9 +27,9 @@ console.log("function %crequestAPI%c running","color:blue;", baseURL)
 
 
 
-// =========
-// TEMPLATES
-// =========
+// =========|
+// TEMPLATES|
+// =========|
 
 
 var newsTemplate = function(result){
