@@ -188,7 +188,7 @@ var specialsInit = function(data){
 // INIT                             |
 requestAPI('/news/1',newsToPage)
 requestAPI('/menu/1', fancyToPage)
-// requestAPI('/menu/2', alaydisToPage)
+//requestAPI('/menu/2', alaydisToPage)
 // INIT                             |
 // =================================
 
