@@ -23,7 +23,7 @@ $(".tab_ourstory").on('click', function (x){
 $(".tab_menu").on('click', function (x){
 	
  $(".story_reso_div").html("");
-
+$(".fancy_menu").html("");
 	$(".tab_menu").toggleClass("border");
 	$(".tab_ourstory").removeClass("border");
     $(".tab_rsvp").removeClass("border");

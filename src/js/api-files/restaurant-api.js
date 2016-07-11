@@ -120,6 +120,7 @@ var newsToPage = function(data){
 var fancyToPage = function(data){
     fancyMenuObj = data;
         specialsInit();
+        $(".fancy_menu").html("");
         // This function call is here because specialsInit() depends on fancyMenuObj variable being set
                   console.log("function %cfancyToPage%c running, API request recieved","color:blue;", data)
                   console.log("adding api result %cappetizers%c to page","color:green;", data)
@@ -138,6 +139,7 @@ var fancyToPage = function(data){
         console.log("adding api result %csides%c to page","color:green;", data)
           $(".fancy-menu").append(`<div class="menu-sub-title">SIDES A LA CART<br></div>`)
         data.sides.forEach(function(datum){
+
             $(".fancy-menu").append(fancyMenuTemplate(datum))
 
           });
