@@ -12,9 +12,13 @@ $(".tab_ourstory").on('click', function (x){
 
 $(".tab_menu").on('click', function (x){
 	
+
+
 	$(".tab_menu").toggleClass("border");
 	$(".tab_ourstory").removeClass("border");
     $(".tab_rsvp").removeClass("border");
+    
+    requestAPI('/menu/1', fancyToPage)
 })
 
 $(".tab_rsvp").on('click', function (x){
