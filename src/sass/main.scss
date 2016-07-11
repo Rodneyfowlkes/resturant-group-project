@@ -106,8 +106,17 @@ $owht: #EBEBEB;
 	  .article_content {
 	  	width: 80%;
 	  	margin: auto;
-
 	  };
+		.article_text{
+			font-weight: 300;
+		}
+
+	.story_reso_div{
+		font-weight: 300;
+		padding-top: 15px;
+		padding-left: 15px;
+	}
+
 .news{
 white-space: normal;
 }
@@ -242,29 +251,27 @@ display: inline;
 	 img{
 height: 20px;
 width: auto;
+border: 1px #333 solid;
+border-radius: 2px;
+padding:5px;
+transition: all 2s;
 // float: right;
 	}
 }
 .spicy{
 	margin-left: 53px;
 }
-#icon {
-    border: 1px #333 solid;
-		border-radius: 2px;
-    padding:5px;
-    transition: all 2s;
-}
-#icon-description {
-		display: none;
-		// display:flex;
-    transition: all 2s;
-    position:absolute;
-    border:1px solid #000;
-    border-radius: 5px;
-    background-color: #e3e4ce;
-    min-width:10px;
-    min-height:10px;
-    padding: 20px;
+
+
+.tooltip {
+	display:none;
+	position:absolute;
+	border:1px solid #333;
+	background-color:#161616;
+	border-radius:5px;
+	padding:10px;
+	color:#fff;
+	font-size:12px Arial;
 }
 
 

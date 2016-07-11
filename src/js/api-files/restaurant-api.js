@@ -10,6 +10,25 @@ var log = function(data){
   console.warn('>>>> DATA RECIEVED:',data)
 };
 
+var hover = function() {
+// Tooltip only Text
+$('.masterTooltip').hover(function(){
+        var title = $(this).attr('title');
+        $(this).data('tipText', title).removeAttr('title');
+        $('<p class="tooltip"></p>')
+        .text(title)
+        .appendTo('body')
+        .fadeIn('slow');
+}, function() {
+        $(this).attr('title', $(this).data('tipText'));
+        $('.tooltip').remove();
+}).mousemove(function(e) {
+        var mousex = e.pageX + 20; //Get X coordinates
+        var mousey = e.pageY + 10; //Get Y coordinates
+        $('.tooltip')
+        .css({ top: mousey, left: mousex })
+});
+};
 
 
 
@@ -53,13 +72,13 @@ var spicy = ""
 var vegan = ""
 var allergies = ""
 
-  if (result.spicy == 1) {spicy = `<img id="icon" src="images/noun_spicy.png"><div id="icon-description"> Here is the big fat description box EXAMPLE TEXT</div></img>`}
-  if (result.vegan == 1) {vegan = `<img id="icon" src="images/noun_vegan_cc.png"><div id="icon-description"> Here is the big fat description box EXAMPLE TEXT</div></img>`}
-  if (result.allergies == 1) {allergies = `<img id="icon" src="images/noun_allergy.png"><div id="icon-description"> Here is the big fat description box EXAMPLE TEXT</div></img>`}
+  if (result.spicy == 1) {spicy = `<img src="images/noun_spicy.png" class="masterTooltip" title="This meal is very spicy, please be careful"></img>`}
+  if (result.vegan == 1) {vegan = `<img src="images/noun_vegan_cc.png"class="masterTooltip" title="This meal is Vegan friendly"></img>`}
+  if (result.allergies == 1) {allergies = `<img src="images/noun_allergy.png"class="masterTooltip" title="This meal contains allergens"></img>`}
 
-  if (result.spicy == 0) {spicy = `<img id="icon" src="images/noun_spicy.png"><div id="icon-description"> NOT Here is the big fat description box EXAMPLE TEXT</div></img>`}
-  if (result.vegan == 0) {vegan = `<img id="icon" src="images/noun_vegan_cc.png"><div id="icon-description"> NOT Here is the big fat description box EXAMPLE TEXT</div></img>`}
-  if (result.allergies == 0) {allergies = `<img id="icon" src="images/noun_allergy.png"><div id="icon-description"> NOT Here is the big fat description box EXAMPLE TEXT</div></img>`}
+  if (result.spicy == 0) {spicy = `<img src="images/noun_spicy.png"class="masterTooltip" title="This meal is not spicy. Sensitive palates rejoice!"></img>`}
+  if (result.vegan == 0) {vegan = `<img src="images/noun_vegan_cc.png"class="masterTooltip" title="This meal is not Vegan"></img>`}
+  if (result.allergies == 0) {allergies = `<img src="images/noun_allergy.png"class="masterTooltip" title="This meal contains no nuts, eggs or gluten"></img>`}
 
 
   return `<div class="fancy-menu-post">
@@ -145,6 +164,7 @@ var fancyToPage = function(data){
         data.sides.forEach(function(datum){
             $(".fancy-menu").append(fancyMenuTemplate(datum))
           });
+          hover()
 }
 
 var alaydisToPage = function(data){
