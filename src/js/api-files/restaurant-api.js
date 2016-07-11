@@ -13,7 +13,6 @@ var log = function(data){
 var hover = function() {
 // Tooltip only Text
 $('.masterTooltip').hover(function(){
-        // Hover over code
         var title = $(this).attr('title');
         $(this).data('tipText', title).removeAttr('title');
         $('<p class="tooltip"></p>')
@@ -21,7 +20,6 @@ $('.masterTooltip').hover(function(){
         .appendTo('body')
         .fadeIn('slow');
 }, function() {
-        // Hover out code
         $(this).attr('title', $(this).data('tipText'));
         $('.tooltip').remove();
 }).mousemove(function(e) {

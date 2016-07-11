@@ -106,8 +106,17 @@ $owht: #EBEBEB;
 	  .article_content {
 	  	width: 80%;
 	  	margin: auto;
-
 	  };
+		.article_text{
+			font-weight: 300;
+		}
+
+	.story_reso_div{
+		font-weight: 300;
+		padding-top: 15px;
+		padding-left: 15px;
+	}
+
 .news{
 white-space: normal;
 }
@@ -252,7 +261,6 @@ transition: all 2s;
 .spicy{
 	margin-left: 53px;
 }
-
 
 
 .tooltip {
