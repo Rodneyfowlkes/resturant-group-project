@@ -34,7 +34,7 @@ $(".tab_rsvp").on('click', function (x){
 	$(".tab_rsvp").toggleClass("border");
 	$(".tab_ourstory").removeClass("border");
     $(".tab_menu").removeClass("border");
-})
+
 
 	var form_temp = `<form>
          <h4>Full Name</h4>
@@ -66,7 +66,7 @@ $(".tab_rsvp").on('click', function (x){
     $(".story_reso_div").html("");
     $(".fancy-menu").html("");
     $(".special-item").html("");
-    $(".story_reso_div").append(form_temp);
+    $(".story_reso_div").append(form_temp);})
 
 
 
