@@ -237,12 +237,37 @@ hr{
 	margin-right: 200px;
 }
 
-.icons img{
-height: 30px;
+.icons{
+display: inline;
+	 img{
+height: 20px;
 width: auto;
-float: right;
-
+// float: right;
+	}
 }
+.spicy{
+	margin-left: 53px;
+}
+#icon {
+    border: 1px #333 solid;
+		border-radius: 2px;
+    padding:5px;
+    transition: all 2s;
+}
+#icon-description {
+		display: none;
+		// display:flex;
+    transition: all 2s;
+    position:absolute;
+    border:1px solid #000;
+    border-radius: 5px;
+    background-color: #e3e4ce;
+    min-width:10px;
+    min-height:10px;
+    padding: 20px;
+}
+
+
 .menu-title{
 	font-weight: bold;
 	font-size: 22px;
@@ -251,31 +276,34 @@ float: right;
 font-style: italic;
 font-weight: bold;
 font-size: 18px;
-width: 840px;
+width: 900px;
 border-bottom: solid black 1px;
 margin-bottom: 25px;
 }
 
 .fancy-menu-post{
 margin-bottom: 50px;
-width: 840px;
+width: 900px;
 
 	.title{
 				font-size: 16px;
 				font-weight: 500;
-				width: 800px;
+				width: 850px;
 				display: inline-block;
 			};
 	.price{
 
 	}
 	.description{
-				display: inline-block;;
+				display: inline-block;
 				font-weight: 300;
 				font-size: 14px;
 				padding-top: 5px;
 				padding-bottom: 20px;
-				width: 750px;
+				padding-right: 5px;
+				width: 700px;
+				min-height: 70px;
+				border-right: 1px solid grey;
 			}
 }
 
@@ -290,6 +318,8 @@ width: 840px;
 
 
 // POST STYLES
+
+
 
 // .tab_rsvp:hover{
 

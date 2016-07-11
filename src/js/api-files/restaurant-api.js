@@ -27,9 +27,9 @@ console.log("function %crequestAPI%c running","color:blue;", baseURL)
 
 
 
-// =========
-// TEMPLATES
-// =========
+// =========|
+// TEMPLATES|
+// =========|
 
 
 var newsTemplate = function(result){
@@ -53,15 +53,20 @@ var spicy = ""
 var vegan = ""
 var allergies = ""
 
-  if (result.spicy == 1) {spicy = `<img src="images/noun_spicy.png"></img>`}
-  if (result.vegan == 1) {vegan = `<img src="images/noun_vegan_cc.png"></img>`}
-  if (result.allergies == 1) {allergies = `<img src="images/noun_allergy.png"></img>`}
+  if (result.spicy == 1) {spicy = `<img id="icon" src="images/noun_spicy.png"><div id="icon-description"> Here is the big fat description box EXAMPLE TEXT</div></img>`}
+  if (result.vegan == 1) {vegan = `<img id="icon" src="images/noun_vegan_cc.png"><div id="icon-description"> Here is the big fat description box EXAMPLE TEXT</div></img>`}
+  if (result.allergies == 1) {allergies = `<img id="icon" src="images/noun_allergy.png"><div id="icon-description"> Here is the big fat description box EXAMPLE TEXT</div></img>`}
+
+  if (result.spicy == 0) {spicy = `<img id="icon" src="images/noun_spicy.png"><div id="icon-description"> NOT Here is the big fat description box EXAMPLE TEXT</div></img>`}
+  if (result.vegan == 0) {vegan = `<img id="icon" src="images/noun_vegan_cc.png"><div id="icon-description"> NOT Here is the big fat description box EXAMPLE TEXT</div></img>`}
+  if (result.allergies == 0) {allergies = `<img id="icon" src="images/noun_allergy.png"><div id="icon-description"> NOT Here is the big fat description box EXAMPLE TEXT</div></img>`}
+
 
   return `<div class="fancy-menu-post">
   <div class="title">${result.item}</div>
       <span class="price">$${result.price}</span>
-  <div class="description"><br>${result.description}</div>
-  <div class="icons">
+    <div class="icons"><div class="description">${result.description}</div>
+
     <span class="spicy">${spicy}</span>
     <span class="vegan">${vegan}</span>
     <span class="allergies">${allergies}</span>
@@ -124,7 +129,7 @@ var fancyToPage = function(data){
                   console.log("function %cfancyToPage%c running, API request recieved","color:blue;", data)
                   console.log("adding api result %cappetizers%c to page","color:green;", data)
   $(".fancy-menu").append(`<span class="menu-title">Dinner Menu</span><br>`)
-        $(".fancy-menu").append(`<div class="menu-sub-title">APPETIZERS</div>`)
+        $(".fancy-menu").html(`<div class="menu-sub-title">APPETIZERS</div>`)
           data.appetizers.forEach(function(datum){
               $(".fancy-menu").append(fancyMenuTemplate(datum))
 
@@ -139,7 +144,6 @@ var fancyToPage = function(data){
           $(".fancy-menu").append(`<div class="menu-sub-title">SIDES A LA CART<br></div>`)
         data.sides.forEach(function(datum){
             $(".fancy-menu").append(fancyMenuTemplate(datum))
-
           });
 }
 
@@ -169,7 +173,7 @@ var specialsLogic = function(data){
         });
     }
   console.log("%cSPECIAL OF THE DAY","color:orange;",specialItem);
-    $(".special-item").append("Special OF THE DAY")
+    $(".special-item").html("Special OF THE DAY")
     $(".special-item").append(fancyMenuTemplate(specialItem))
 };
 
@@ -193,7 +197,6 @@ requestAPI('/news/1',newsToPage)
 
 // requestAPI('/menu/2', alaydisToPage)
 
-//requestAPI('/menu/2', alaydisToPage)
 
 // INIT                             |
 // =================================
