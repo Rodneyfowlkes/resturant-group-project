@@ -33,7 +33,7 @@ var flickr_pull = function (x){ $.ajax({
   data: {  
   	format: 'json', 
     nojsoncallback: '1',
-  	
+  	per_page: 6,
   	method: 'flickr.photos.search',
   	api_key: flickr_key,
   	text: "Sushi"
