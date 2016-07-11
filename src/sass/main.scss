@@ -58,7 +58,7 @@ $owht: #EBEBEB;
 
 .under_img_feeds{
 	display:flex;
-	justify-content: spaaaaaace-between;
+	justify-content: space-between;
 }
 
 
@@ -128,40 +128,90 @@ height:50%;
 
 .menu_tab_div{
 	float: left;
-    background-color: lightblue;
+    // background-color: lightblue;
 
 
 }
 
 .flickr_photos{
 	float: right;
+	margin-right:4%;
+
 .flick_food {
-	height: 150px;
-	width: 150px;
+	height: 200px;
+	width: 200px;
+    border: 1px solid grey;
+    margin-bottom: 10%;
+}
 
 }
+
+.flickr_text{
+	font-size:160%;
+	margin-bottom:7%;
 }
 
 .under_div {
-width:60%;
+
+}
+
+
+.tab_div{
+
+border-bottom: 1px solid grey;
+height:4vw;
+}
+
+.menu_tab_div{
+	width:70%;
+	height:4vw;
+}
+.bord {
+	display:inline-block;
+	height: 4vw;
+	margin-left: 4%;
 }
 
 
 
-.bord{
-	margin-left: -3%;
+.border{
+    border-top: 1px solid grey;
+	border-left: 1px solid grey;
+	border-right: 1px solid grey;
+	background-color:white;
 }
 
 .tab_ourstory{
-	border-bottom: 1px solid grey;
+
 }
+// .tab_ourstory:hover{
+
+// 	border-top: 1px solid grey;
+// 	border-left: 1px solid grey;
+// 	border-right: 1px solid grey;
+// }
+
+
 
 .tab_menu{
-border-bottom: 1px solid grey;
+
+ width: 100px;
+ text-align: center;
+
+
 }
+
+// .tab_menu:hover{
+
+// 	border-top: 1px solid grey;
+// 	border-left: 1px solid grey;
+// 	border-right: 1px solid grey;
+// }
+
 .tab_rsvp{
-border-bottom: 1px solid grey;
+
 }
+
 
 .tab_border{
 	border-bottom: 1px solid grey;
@@ -219,3 +269,10 @@ width: 840px;
 			}
 }
 // POST STYLES
+
+// .tab_rsvp:hover{
+
+// 	border-top: 1px solid grey;
+// 	border-left: 1px solid grey;
+// 	border-right: 1px solid grey;
+// }
