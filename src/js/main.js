@@ -2,11 +2,19 @@ import $ from 'jquery'
 import {flickr_pull} from "./api-files/flick-food-api.js";
 import { baseURL, requestAPI, newsTemplate, fancyMenuTemplate, alaydisMenuTemplate, log, newsToPage, fancyToPage, alaydisToPage } from "./api-files/restaurant-api.js"
 
+function toggleBorder (className) {
+	var names = [".tab_ourstory", ".tab_menu", ".tab_rsvp"];
+	var pageNode = $(className);
+
+	pageNode.addClass("border");
+	var removeBorders = names.filter(function (name) { return name !== className; });
+	console.log(removeBorders)
+	removeBorders.forEach(function (name) { $(name).removeClass("border"); });
+};
+
 $(".tab_ourstory").on('click', function (x){
 
-	$(".tab_ourstory").toggleClass("border");
-    $(".tab_menu").removeClass("border");
-    $(".tab_rsvp").removeClass("border");
+	toggleBorder(".tab_ourstory");
 
     $(".story_reso_div").html("");
     $(".story_reso_div").html(`Food truck swag chartreuse lomo normcore, chicharrones direct trade brooklyn scenester gochujang
@@ -17,24 +25,22 @@ $(".tab_ourstory").on('click', function (x){
 
     $(".fancy-menu").html("");
     $(".special-item").html("");
-})
+});
 
 
 $(".tab_menu").on('click', function (x){
  $(".story_reso_div").html("");
 
-	$(".tab_menu").toggleClass("border");
-	$(".tab_ourstory").removeClass("border");
-    $(".tab_rsvp").removeClass("border");
+ 	toggleBorder(".tab_menu");
 
     requestAPI('/menu/1', fancyToPage)
-})
+});
 
 $(".tab_rsvp").on('click', function (x){
-	$(".tab_rsvp").toggleClass("border");
-	$(".tab_ourstory").removeClass("border");
-    $(".tab_menu").removeClass("border");
 
+	toggleBorder(".tab_rsvp");
+
+	console.log("hellopapppap");
 
 	var form_temp = `<form>
          <h4>Full Name</h4>
@@ -55,34 +61,29 @@ $(".tab_rsvp").on('click', function (x){
            <option>Indoor</option>
            <option>Outdoor</option>
          </select>
-         <button name="rsvp" type="button" class="rsvp_button"> RSVP That Shit!</button>
+         <button name="rsvp" type="button" class="rsvp"> RSVP That Shit!</button>
        </form>`
-
-
-	$(".tab_rsvp").toggleClass("border");
-	$(".tab_ourstory").removeClass("border");
-    $(".tab_menu").removeClass("border");
 
     $(".story_reso_div").html("");
     $(".fancy-menu").html("");
     $(".special-item").html("");
-    $(".story_reso_div").append(form_temp);})
+    $(".story_reso_div").append(form_temp);
+    $(".rsvp").on("click", handleReservation);
+});
 
 
-
-$(".rsvp_button").on('click', function (x){
-
- console.log("helloe");
+function handleReservation (event) {
+ console.log("hello");
 
  $(".story_reso_div").html("");
 
-	var name = $(".nametext").val();
+	var name = $(".nametext").value;
 	var guest = $(".guesttext").val();
     var date = $(".datetext").val();
     var special = $(".specialtext").val();
     var seating = $(".seating").val();
 
-
+console.log(name);
      var rsvptemp = `<div>
          <span>${name}</span>
          <span>${guest}</span>
@@ -92,5 +93,4 @@ $(".rsvp_button").on('click', function (x){
        </div>`;
 
     $(".story_reso_div").append(rsvptemp);
-
-})
+};
