@@ -1,9 +1,10 @@
+
 $owht: #EBEBEB;
 .container {
 	height: 15%;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: spaaaaaace-between;
     border-bottom: 1px solid grey;
 .logo{
 	width: 10%;
@@ -39,11 +40,11 @@ $owht: #EBEBEB;
   transform:         rotate(180deg);
   /* needed? not sure */
   zoom: 1;
-	.rest_img{ 
+	.rest_img{
 		display: block;
         transform:rotate();
         width: 100%;
-	
+
 		max-height:100%;
 		 -webkit-transform: rotate(180deg);
   -moz-transform:    rotate(180deg);
@@ -57,7 +58,7 @@ $owht: #EBEBEB;
 
 .under_img_feeds{
 	display:flex;
-	justify-content: space-between;
+	justify-content: spaaaaaace-between;
 }
 
 
@@ -67,6 +68,7 @@ $owht: #EBEBEB;
 	background-color: #ECECEC;
 	display: inline-block;
 	white-space: nowrap;
+		overflow-y: scroll;
 
 	margin-left: 3%;
 
@@ -74,34 +76,36 @@ $owht: #EBEBEB;
 
 
 .test_title {
+	font-weight: bold;
 	width:80%;
 	margin: auto;
 	border-bottom: 1px solid grey;
 	height:9%;
 	display:flex;
 	align-items: flex-end;
-	  
+
 	  .test_text{
-	  	position: relative; 
+	  	position: relative;
 	  	margin-top: 5%;
 	  }
-	 
+
 }
 
 .article_title{
-	    
+			font-weight: bold;
 	  	width: 80%;
 	  	margin: auto;
+			margin-bottom: 10px;
 	  }
- 
+
 	  .article_content {
 	  	width: 80%;
 	  	margin: auto;
 
-	  }
-
-
-
+	  };
+.news{
+white-space: normal;
+}
 
 .food_special_img{
 width:80%;
@@ -164,3 +168,54 @@ border-bottom: 1px solid grey;
 	width:80%;
 	height: 10%;
 }
+
+
+// .menu-container div{
+// 	border: solid black 1px;
+// }
+
+
+// POST STYLES
+
+hr{
+	width: auto;
+}
+
+.icons img{
+height: 30px;
+width: auto;
+float: right;
+}
+.menu-title{
+	font-weight: bold;
+	font-size: 22px;
+}
+.menu-sub-title{
+font-style: italic;
+font-weight: bold;
+font-size: 18px;
+}
+
+.fancy-menu-post{
+margin-bottom: 50px;
+width: 840px;
+
+	.title{
+				font-size: 16px;
+				font-weight: 500;
+				width: 800px;
+				display: inline-block;
+			};
+	.price{
+
+	}
+	.description{
+				display: inline-block;;
+				font-weight: 300;
+				font-size: 14px;
+				padding-top: 5px;
+				padding-bottom: 20px;
+				width: 750px;
+			}
+}
+// POST STYLES

@@ -33,11 +33,13 @@ console.log("function %crequestAPI%c running","color:blue;", baseURL)
 
 
 var newsTemplate = function(result){
-  return `<div class="news-post">
-  <p class="title">${result.title}</p>
-  <p class="date">${result.date_published}</p>
-  <p class="post">${result.post}</p>
-  </div>`
+  return `<div class="article_title news">
+  <p class="article_title">${result.title} <span class="date">${result.date_published}</span></p>
+  </div>
+  <div class="article_content">
+  <span class="article_text">${result.post}</span>
+  </div>
+`
 }
 
 
@@ -51,19 +53,19 @@ var spicy = ""
 var vegan = ""
 var allergies = ""
 
-  if (result.spicy == 1) {spicy = `<img src="https://www.w3.org/Icons/32x32/caution"></img>`}
-  if (result.vegan == 1) {vegan = `<img src="https://www.w3.org/Icons/32x32/caution"></img>`}
-  if (result.allergies == 1) {allergies = `<img src="https://www.w3.org/Icons/32x32/caution"></img>`}
+  if (result.spicy == 1) {spicy = `<img src="images/noun_spicy.png"></img>`}
+  if (result.vegan == 1) {vegan = `<img src="images/noun_vegan_cc.png"></img>`}
+  if (result.allergies == 1) {allergies = `<img src="images/noun_allergy.png"></img>`}
 
   return `<div class="fancy-menu-post">
-  <p class="title">${result.item}</p>
-  <span class="description">${result.description}</span>
-  <span class="price">$${result.price}</span>
-  <span class="icons">
-    <span class="spicy">Spicy: (placeholder text)${spicy}</span>
-    <span class="vegan">Vegan: (placeholder text)${vegan}</span>
-    <span class="allergies">Allergies: (placeholder text)${allergies}</span>
-  </span>
+  <div class="title">${result.item}</div>
+      <span class="price">$${result.price}</span>
+  <div class="description"><br>${result.description}</div>
+  <div class="icons">
+    <span class="spicy">${spicy}</span>
+    <span class="vegan">${vegan}</span>
+    <span class="allergies">${allergies}</span>
+  </div>
   </div>`
 }
 
@@ -77,7 +79,7 @@ var alaydisMenuTemplate = function(result){
     if (result.price.cup === undefined) {
       price = "$" + result.price
       }
-    else price = "cup: $" + result.price.cup + "<br>bowl: $" + result.price.bowl
+    else price = "cup: $" + result.price.cup + "   bowl: $" + result.price.bowl
   }
 
     if (result["local fav"] == 1) {localFave = `<img src="https://www.w3.org/Icons/32x32/caution"></img>`};
@@ -88,7 +90,7 @@ var alaydisMenuTemplate = function(result){
 soupOr()
 
   return `<div class="alaydis-menu-post">
-  <p class="item">${result.item}</p>
+  <span class="item">${result.item}</span>
   <span class="price">${price}<span>
   <span class="description">${result.description}</span>
   <span class="icons">
@@ -96,7 +98,6 @@ soupOr()
     <span class="sodium">Low sodium(placeholder text)${lowSodium}</span>
     <span class="cals">Under 500 cals(placeholder text)${Under500}</span>
   </span>
-  <hr>
   </div>`
 }
 // remove <hr> after testing
@@ -120,21 +121,22 @@ var fancyToPage = function(data){
     fancyMenuObj = data;
         specialsInit();
         // This function call is here because specialsInit() depends on fancyMenuObj variable being set
-  console.log("function %cfancyToPage%c running, API request recieved","color:blue;", data)
-        console.log("adding api result %cappetizers%c to page","color:green;", data)
-        $(".fancy-menu").append(`<span class="menu-sub-title">Appetizers</span>`)
+                  console.log("function %cfancyToPage%c running, API request recieved","color:blue;", data)
+                  console.log("adding api result %cappetizers%c to page","color:green;", data)
+  $(".fancy-menu").append(`<span class="menu-title">Dinner Menu</span><br>`)
+        $(".fancy-menu").append(`<span class="menu-sub-title">APPETIZERS</span><hr>`)
           data.appetizers.forEach(function(datum){
               $(".fancy-menu").append(fancyMenuTemplate(datum))
 
             });
         console.log("adding api result %centrees%c to page","color:green;", data)
-          $(".fancy-menu").append(`<span class="menu-sub-title">Entrees</span>`)
+          $(".fancy-menu").append(`<span class="menu-sub-title">ENTREES</span>  <hr>`)
           data.entrees.forEach(function(datum){
               $(".fancy-menu").append(fancyMenuTemplate(datum))
 
             });
         console.log("adding api result %csides%c to page","color:green;", data)
-          $(".fancy-menu").append(`<span class="menu-sub-title">Sides A La Carte</span>`)
+          $(".fancy-menu").append(`<span class="menu-sub-title">SIDES A LA CART</span>  <hr>`)
         data.sides.forEach(function(datum){
             $(".fancy-menu").append(fancyMenuTemplate(datum))
 
@@ -143,6 +145,7 @@ var fancyToPage = function(data){
 
 var alaydisToPage = function(data){
       console.log("function %calaydisToPage%c running","color:blue;","color:black;")
+$(".alaydis-menu").append(`<span class="menu-title">Alaydis Menu</span>`)
   for (var prop in data) {
     console.log("Looping over " + "data." + [prop]);
     data[prop].forEach(function(datum){
@@ -185,7 +188,7 @@ var specialsInit = function(data){
 // INIT                             |
 requestAPI('/news/1',newsToPage)
 requestAPI('/menu/1', fancyToPage)
-requestAPI('/menu/2', alaydisToPage)
+// requestAPI('/menu/2', alaydisToPage)
 // INIT                             |
 // =================================
 
