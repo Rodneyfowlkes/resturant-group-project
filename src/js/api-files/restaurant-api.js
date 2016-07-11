@@ -129,7 +129,7 @@ var fancyToPage = function(data){
                   console.log("function %cfancyToPage%c running, API request recieved","color:blue;", data)
                   console.log("adding api result %cappetizers%c to page","color:green;", data)
   $(".fancy-menu").append(`<span class="menu-title">Dinner Menu</span><br>`)
-        $(".fancy-menu").append(`<div class="menu-sub-title">APPETIZERS</div>`)
+        $(".fancy-menu").html(`<div class="menu-sub-title">APPETIZERS</div>`)
           data.appetizers.forEach(function(datum){
               $(".fancy-menu").append(fancyMenuTemplate(datum))
 
