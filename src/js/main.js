@@ -15,8 +15,8 @@ $(".tab_ourstory").on('click', function (x){
      truffaut irony dreamcatcher fap. Franzen hella fixie, normcore distillery migas single-origin coffee.`);
 
 
-    $(".fancy-menu").html("");
-    $(".special-item").html("");
+    // $(".fancy-menu").html("");
+    // $(".special-item").html("");
 })
 
 
