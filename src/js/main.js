@@ -85,11 +85,12 @@ function handleReservation (event) {
 
 console.log(name);
      var rsvptemp = `<div>
-         <span>${name}</span>
-         <span>${guest}</span>
-         <span>${date}</span>
-         <span>${special}</span>
-         <span>${seating}</span>
+         <span class="rsvp_date rs">${date}</span>
+         <span class="rsvp_name rs">${name}</span>
+         <span class="rsvp_guest rs">A Reservation of ${guest} Guest Attending</span>
+          <span class="rsvp_seating rs">${seating} Seating</span>
+         <span class="rsvp_special rs">${special}</span>
+        
        </div>`;
 
     $(".story_reso_div").append(rsvptemp);
